@@ -3369,8 +3369,13 @@ select.mobile-device {
     bottom: 20px;
 }
 
+input#email:focus {
+    border: 1px solid #fd6802;
+}
 
-
+input#phone:focus {
+    border: 1px solid #fd6802;
+}
 
 #not-a-user {
     margin: 15px;
