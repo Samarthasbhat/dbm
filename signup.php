@@ -8,7 +8,7 @@ if($con->connect_error){
 
 $name =$_POST["name"];
 $email=$_POST["email"];
-$date=date("Y-m-d");
+$date=$_POST["date"];
 $mphone=$_POST["mobile"];
 $phone=$_POST["home_phone"];
 $address=$_POST["address"];
