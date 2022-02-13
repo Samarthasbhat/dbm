@@ -100,10 +100,10 @@
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about-us.html">About us</a></li>
                         <li><a href="testimonials.html">Testimonials</a></li>
-                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="pricing.php">Pricing</a></li>
 						<li><a href="contact.html">Contact</a></li>
-                        <li><a class="active" href="login.html">Login</a></li>
                         <li><a href = "signup.html">Signup</a></li>
+                        <li><a class="active" href="ad.php">Admin</a></li>
                     </ul>
                 </div>
             </div>
@@ -122,7 +122,7 @@
                 <div class="col-md-8 col-md-offset-2">
                     <div class="contact_form">
                         <div id="message"></div>
-                        <form id="loginform" class="row" action="login.php" name="loginform" method="post">
+                        <form id="loginform" class="row" action="admin.php" name="loginform" method="post">
                             <fieldset class="row-fluid">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 </div>
@@ -132,10 +132,10 @@
                                     <input type="email" name="email" id="email" class="form-control" placeholder="Your Email">
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+                                    <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="not-a-user">
-                                    <a href="">Not yet signed up?</a>
+                                    <!-- <a href="">Not yet signed up?</a> -->
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
                                     <button type="submit" value="SEND" id="submit" class="btn btn-light btn-radius btn-brd grd1 btn-block">Login</button>
