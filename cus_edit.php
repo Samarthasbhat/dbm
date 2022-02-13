@@ -1,3 +1,24 @@
+<?php
+$con=new mysqli("localhost","root","","telecom");
+
+$id = $_GET["identity_card_no"];
+
+$result = mysqli_query($con,"SELECT *  from `customer` where `identity_card_no`=$id");
+
+while($row=mysqli_fetch_array($result)){
+    $name=$row['name'];
+    $email=$row['email'];
+    $date=$row['registration_date'];
+    $mobile=$row['mobile_ph'];
+    $home=$row['home_ph'];
+    $address=$row['address'];
+
+}
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -100,10 +121,10 @@
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about-us.html">About us</a></li>
                         <li><a href="testimonials.html">Testimonials</a></li>
-                        <li><a href="pricing.php">Pricing</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
 						<li><a href="contact.html">Contact</a></li>
-                        <li><a class="active" href = "signup.html">Signup</a></li>
-                        <li><a href="ad.php">Admin</a></li>
+                        <li><a class="active" href = "signup.html">Update</a></li>
+                        <li><a href="admin.html">Admin</a></li>
                     </ul>
                 </div>
             </div>
@@ -115,21 +136,21 @@
     <div id="contact" class="section wb">
         <div class="container">
             <div class="section-title text-center">
-                <h3>Sign Up</h3>
+                <h3>Edit </h3>
             </div><!-- end title -->
 
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     <div class="contact_form" id ="sign_up">
-                        <form action="signup.php"  method="POST">
+                        <form action=""  method="POST">
       <div class="form-group">
           <div id="message"></div>
         <label for="username">Name</label>
-        <input class="form-control" type="text" name="name" id="username" placeholder="Your sweet name" required />
+        <input class="form-control" type="text" name="name" id="username" placeholder="Your sweet name" value="<?=$name; ?>" required />
       </div>
       <div class="form-group">
         <label for="email">Email</label>
-        <input class="form-control" type="email" name="email" id="email" placeholder="james.bond@spectre.com" required />
+        <input class="form-control" type="email" name="email" id="email" placeholder="james.bond@spectre.com" value="<?=$email; ?>"required />
       </div>
        <!-- <div class="form-group">
         <label for="date">Date</label>
@@ -137,32 +158,23 @@
       </div> -->
        <div class="form-group">
         <label for="email">Mobile</label>
-        <input class="form-control" type="tel" minlength="10" maxlength="10" name="mobile" id="email" placeholder="mobile number" required />
+        <input class="form-control" type="tel" minlength="10" maxlength="10" name="mobile" id="email" placeholder="mobile number" value="<?=$mobile; ?>"required />
       </div>
       <div class="form-group">
         <label for="password">Home phone number</label>
-        <input class="form-control" type="tel" minlength="10" maxlength="10" name="home_phone" id="password" placeholder="home phone number" required />
+        <input class="form-control" type="tel" minlength="10" maxlength="10" name="home_phone" id="password" placeholder="home phone number" value="<?=$home; ?>" required />
       </div>
       <div class="form-group">
         <label for="address">Address</label>
-        <input class="form-control" type="text" name="address" id="address" placeholder="home adress" required />
+        <input class="form-control" type="text" name="address" id="address" placeholder="home adress" value="<?=$address; ?>" required />
       </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input class="form-control" type="password" name="password" id="password" placeholder="********" required />
-      </div>
-      <div class="form-group">
-        <label for="passwordRepeat">Re-enter Password</label>
-        <input class="form-control" type="password" name="con_password" id="passwordRepeat" placeholder="********" required />
-      </div>
+    
       <div class="m-t-lg">
         <ul class="list-inline">
           <li>
-            <input class="btn btn--form" type="submit" value="Register" />
+            <input class="btn btn--form" type="submit"  name='register' value="Update" />
           </li>
-          <li>
-            <a class="signup__link" href="#">I am already a member</a>
-          </li>
+       
         </ul>
       </div>
     </form>  
@@ -273,6 +285,35 @@
     <script src="js/custom.js"></script>
     <script src="js/portfolio.js"></script>
     <script src="js/hoverdir.js"></script>
+<style>
+    form{
+        color:#000 !important;
+        font-weight: 600;
+        opacity: 1;
+    }
+    input{
+        color:#000 !important;
+        opacity: 1;
+    }
 
+</style>
+
+
+<?php
+
+if(isset($_POST['register'])){
+
+$query1= mysqli_query($con,"UPDATE `customer` set `name` = '$_POST[name]',`email`='$_POST[email]',`mobile_ph` = '$_POST[mobile]',`home_ph` = '$_POST[home_phone]',`address` = '$_POST[address]'  where `identity_card_no` = $id ");
+
+?>
+<script>
+    window.location.href='ad.php';
+</script>
+
+<?php
+}
+?>
 </body>
 </html>
+
+

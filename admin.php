@@ -6,6 +6,11 @@ $con=new mysqli("localhost","root","","telecom");
 if($con->connect_error){
  	die("connectionfailed");
 } 
+
+	// include("connection.php");
+	// include("functions.php");
+
+
 	if($_SERVER['REQUEST_METHOD'] == "POST")
 	{
 		//something was posted
@@ -32,7 +37,7 @@ if($con->connect_error){
 					{
 
 						$_SESSION['email'] = $user_data['email'];
-						header("Location: ad.html");
+						header("Location: ad.php");
 						die;
 					}
 				}
