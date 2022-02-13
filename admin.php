@@ -6,11 +6,6 @@ $con=new mysqli("localhost","root","","telecom");
 if($con->connect_error){
  	die("connectionfailed");
 } 
-
-	// include("connection.php");
-	// include("functions.php");
-
-
 	if($_SERVER['REQUEST_METHOD'] == "POST")
 	{
 		//something was posted
