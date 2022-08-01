@@ -4,10 +4,10 @@ session_start();
 
 if($_SESSION['email']){
     echo "";
-    // header('Location: admin.html');
+
 }
 else{
-    header('Location: admin.php');
+    header('Location: admin.html');
 }
 
 $con=new mysqli("localhost","root","","telecom");
@@ -188,12 +188,12 @@ $val3 = mysqli_fetch_array($query8);
 
     // $query = mysqli_query($con,"select * from customer");
 
-    $row= mysqli_fetch_row($result);
+    // $row= mysqli_fetch_row($result);
      
     while ($array = mysqli_fetch_array($result))
     {
 
-        
+            
        echo "<tr>";
        echo "<td>";echo $array['identity_card_no'];echo "</td>";
        echo "<td>";echo $array['name'];echo "</td>";
@@ -262,6 +262,13 @@ $val3 = mysqli_fetch_array($query8);
         <input type="submit" class="price-btn" name='setprice'>
 
     </div>
+
+
+    <br>
+    <br>
+    <br>
+
+    <input type= "submit" name= "log-out" value="Logout" ></input>
 </form>
 
 
@@ -280,7 +287,25 @@ if(isset($_POST['setprice']))   {
     <?php
 }
 
+if(isset($_POST['log-out'])){
+    session_unset();
+    session_destroy();
+    // header('Location: admin.html');
+
+    ?>
+
+    <script>
+        window.location.href=window.location.href;
+    </script>
+    <?php
+
+
+
+}
+
+
 ?>
+
 
 </center>
 </div>
